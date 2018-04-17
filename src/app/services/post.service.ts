@@ -39,6 +39,8 @@ export class PostService {
     this.emitSubject();
   }
 
+
+
   addposttoServer() {
     this.httpClient.put('https://ng-projet-demo.firebaseio.com/posts.json', this.posts).subscribe(
       (resp) => {

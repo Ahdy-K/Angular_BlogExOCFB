@@ -18,14 +18,12 @@ export class PostsComponent implements OnInit {
 
   }
 
-  OnDontLove(){
-
+  OnDontLove() {
     this.loveIts --;
     console.log(this.loveIts);
   }
 
-  OnLove(){
-
+  OnLove() {
     this.loveIts ++;
     console.log(this.loveIts);
   }
