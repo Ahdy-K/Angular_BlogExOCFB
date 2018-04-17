@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <h2>Posts</h2>
+      <ul class="list-group">
+        <app-posts *ngFor="let p of posts; let i = index" [title]="p.title"
+                   [content]="p.content" [created_at]="p.created_at"
+                   [loveIts]="p.loveIts" [index]="i" ></app-posts>
+      </ul>
+
+      <button class="btn btn-primary"
+              routerLink="/new">Ajouter</button>
+      <button class="btn btn-primary"
+              (click)="onSave()">Enregistrer</button>
+      <button class="btn btn-primary"
+              (click)="onFetch()">importer</button>
+    </div>
+  </div>
+</div>

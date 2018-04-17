@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {PostService} from "../services/post.service";
 
 @Component({
   selector: 'app-posts',
@@ -9,32 +10,31 @@ export class PostsComponent implements OnInit {
   @Input() title: String;
   @Input() content: String;
   @Input() loveIts: number;
-   lovegreen: number = 0;
-   lovered: number = 0;
+  @Input() index: number;
   @Input() created_at: Date;
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+
   }
 
   OnDontLove(){
-    this.lovered = this.lovered +1;
-    this.loveIts = -1;
-    console.log(this.lovered);
+
+    this.loveIts --;
+    console.log(this.loveIts);
   }
 
   OnLove(){
-    this.lovegreen = this.lovegreen +1;
-    this.loveIts = +1;
-    console.log(this.lovegreen);
+
+    this.loveIts ++;
+    console.log(this.loveIts);
   }
 
-  getColor(){
-    if (this.lovegreen > this.lovered) {
-      return 'green';
-    }else if (this.lovered > this.lovegreen) {
-      return 'red';
-    }
+  onDelete(){
+    this.postService.deletePost(this.index);
   }
+
+
+
 
 }
